@@ -2,7 +2,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export const register = (input) => {
-  console.log(input);
+  console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA:', input);
   return {
     type: 'REGISTER',
     payload: axios.post('https://pixos-api.herokuapp.com/user/register/',input)
