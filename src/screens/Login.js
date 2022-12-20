@@ -145,7 +145,7 @@ const Login = (props) => {
       {/* READY ACCESS DASBOARD */}
         <View style={{marginTop: 15, flexDirection:'row'}}>
           <Text style={{ fontSize: 15}}>Dont Have Account?</Text>
-          <TouchableOpacity onPress = {() =>{ props.navigation.navigate('Signup') }}>
+          <TouchableOpacity onPress = {() =>{ props.navigation.navigate('Noodles') }}>
             <Text style={{ fontSize: 15, fontWeight:'bold', color:'#2bb358'}}> Register Now </Text>
           </TouchableOpacity>
         </View>

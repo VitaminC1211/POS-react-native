@@ -4,17 +4,18 @@ import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 
 //Content
-import Main from './Main';
+import Noodles from './Noodles';
 import History from './History';
 import Category from './Category';
 import Product from './Product';
 import User from './User';
 
 const BottomNavigator = createBottomTabNavigator({
-  Main: {
-    screen: Main,
+
+  Noodles: {
+    screen: Noodles,
     navigationOptions: {
-      tabBarLabel: 'Main'
+      tabBarLabel: 'Noodles'
     }
   },
   Product: {
@@ -43,15 +44,14 @@ const BottomNavigator = createBottomTabNavigator({
   },
 },{
   //router config
-  initialRouteName: 'Main',
-  main: ['Main','Product','Category','History','User'],
+  initialRouteName: 'Noodles',
+  main: ['Noodles','Product','Category','History','User'],
   defaultNavigationOptions: ({ navigation }) => ({
     tabBarIcon: ({focused}) => {
       const { routeName } = navigation.state;
       let focus = focused ? {width: 30, height: 30} : {width: 26, height: 26};
       let sourceImage;
-
-      if (routeName === 'Main') {
+      if (routeName === 'Noodles') {
         sourceImage = focused ? require('../assets/icon/cart-actived.png') : require('../assets/icon/cart.png');
       } else if (routeName === 'Product') {
         sourceImage = focused ? require('../assets/icon/product-actived.png') : require('../assets/icon/product.png');

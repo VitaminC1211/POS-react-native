@@ -9,7 +9,7 @@ const Cart = (props) => {
     <>
       <View style={{justifyContent:'space-between', flexDirection: 'row', alignItems:'center', height: 89, backgroundColor:'#0DAC50'}}>
         <Text style={{marginHorizontal:17, fontSize: 25, fontWeight:'bold', color:'white'}}>CART LIST</Text>
-        <Icon style={{marginHorizontal:17}} name={'sc-instagram'} size={30} color={'white'} onPress = {() =>{ props.navigation.navigate('Main') }}/>
+        <Icon style={{marginHorizontal:17}} name={'sc-instagram'} size={30} color={'white'} onPress = {() =>{ props.navigation.navigate('Noodles') }}/>
       </View>
 
       <ScrollView>

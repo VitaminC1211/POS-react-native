@@ -14,6 +14,16 @@ import { useDispatch } from 'react-redux'
 import { connect } from "react-redux";
 import { getProduct } from '../Redux/Actions/product';
 
+import { colors, fonts } from '../styles';
+
+const chartIcon = require('../assets/images/pages/chart.png');
+const calendarIcon = require('../assets/images/pages/calendar.png');
+const chatIcon = require('../assets/images/pages/chat.png');
+const galleryIcon = require('../assets/images/pages/gallery.png');
+const profileIcon = require('../assets/images/pages/profile.png');
+const loginIcon = require('../assets/images/pages/login.png');
+const blogIcon = require('../assets/images/pages/blog.png');
+
 const Main = (props) => {
 
   const [page, setPage] = useState(0);
@@ -36,263 +46,138 @@ const Main = (props) => {
 
   return(
     <>
-    <View style={styles.viewBody}>
-
-      <View style={styles.viewSearchCart}>
-    {/* SEARCH NAVIGATIONS */}
-        <View style={styles.viewSearch}>
-          <TextInput placeholder='what do you want to search'
-            style={styles.inputText}
-          />
-          <Image style={styles.cartImage}
-            source={require('../assets/icon/search.png')}
-          />
-        </View>
-
-    {/* CHART ICONS */}
-        <View style={styles.viewCartIcons}>
-          <TouchableOpacity onPress={() => { props.navigation.navigate('Cart') }}>
-            <Image style={styles.imageBasket}
-              source={require('../assets/icon/basket.png')}
+      <View style={styles.container}>
+        <View style={styles.row}>
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate('Noodles')}
+            style={styles.item}
+          >
+            <Image
+              resizeMode="contain"
+              source={chartIcon}
+              style={styles.itemImage}
             />
+            <Text style={styles.itemText}>Noodles</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate('Noodles')}
+            style={styles.item}
+          >
+            <Image
+              resizeMode="contain"
+              source={galleryIcon}
+              style={styles.itemImage}
+            />
+            <Text style={styles.itemText}>Gallery</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate('Noodles')}
+            style={styles.item}
+          >
+            <Image
+              resizeMode="contain"
+              source={profileIcon}
+              style={styles.itemImage}
+            />
+            <Text style={styles.itemText}>Profile</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.row}>
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate('Noodles')}
+            style={styles.item}
+          >
+            <Image
+              resizeMode="contain"
+              source={chatIcon}
+              style={styles.itemImage}
+            />
+            <Text style={styles.itemText}>Chats</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate('Noodles')}
+            style={styles.item}
+          >
+            <Image
+              resizeMode="contain"
+              source={calendarIcon}
+              style={styles.itemImage}
+            />
+            <Text style={styles.itemText}>Calendar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate('Noodles')}
+            style={styles.item}
+          >
+            <Image
+              resizeMode="contain"
+              source={loginIcon}
+              tintColor={colors.primary}
+              style={styles.itemImage}
+            />
+            <Text style={styles.itemText}>Login</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.row}>
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate('Noodles')}
+            style={styles.blogItem}
+          >
+            <Image
+              resizeMode="contain"
+              source={blogIcon}
+              tintColor={colors.primary}
+              style={styles.itemImage}
+            />
+            <Text style={styles.itemText}>Blog</Text>
           </TouchableOpacity>
         </View>
       </View>
-
-    {/* FEATURE APPS */}
-      <View style={styles.viewFeature}>
-        <View style={styles.viewLogo}>
-            <Image style={styles.imageLogo} source={require('../assets/images/pixos-logo.png')} />
-            <Text style={styles.textLogo}> ORDER</Text>
-        </View>
-
-        <View style={styles.viewMenu}>
-          <View style={styles.viewMenuBlue}>
-            <TouchableOpacity>
-              <View style = {styles.TouchableOpacity}>
-                <Text style = {styles.textMenu}>List</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.viewMenuBlue}>
-            <TouchableOpacity>
-              <View style = {styles.TouchableOpacity}>
-                <Text style = {styles.textMenu}>New</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.viewMenuBlue}>
-          <TouchableOpacity>
-            <View style = {styles.TouchableOpacityCategory}>
-              <Text style = {styles.textMenu}>Category</Text>
-            </View>
-          </TouchableOpacity>
-          </View>
-          <View style={styles.viewMenuBlue}>
-          <TouchableOpacity>
-            <View style = {styles.TouchableOpacityName}>
-              <Text style = {styles.textMenu}>Name</Text>
-            </View>
-          </TouchableOpacity>
-          </View>
-        </View>
-      </View>
-
-    {/* PRODUCT APPS */}
-      <ScrollView style={styles.scrollMargin} showsVerticalScrollIndicator={false}>
-        {props.setProduct.map((data, index) => (
-          <View key={index}>
-            <View key={index} style={styles.viewContentImage}>
-              <Image
-                 style={styles.imageContent}
-                 source={{uri: data.image}}
-               />
-               <View style={styles.viewContentText}>
-                 <Text style={styles.contentTitle}>{data.name}</Text>
-                 <Text style={styles.contentDesc}>{data.description}</Text>
-                 <View style={styles.viewContentPrice}>
-                   <Text style={styles.textContent}>{data.price}</Text>
-                     <TouchableOpacity onPress={() => {alert('You tapped the button!')}}
-                       style={styles.contentTouchable}
-                     >
-                     <Text style={styles.textCart}> Add Cart </Text>
-                   </TouchableOpacity>
-                 </View>
-               </View>
-            </View>
-            </View>
-          )
-        )}
-      </ScrollView>
-    </View>
     </>
   )
 }
 
 
 const styles = StyleSheet.create({
-  inputText:{
-    borderWidth:1,
-    borderColor:'#E8E8E8',
-    borderRadius: 25,
-    height: 50,
-    fontSize: 13,
-    paddingLeft: 45,
-    paddingRight: 20,
-    backgroundColor:'white',
-    marginRight: 9
-  },
-  viewBody: {
+  container: {
     flex: 1,
-    backgroundColor:'white'
+    backgroundColor: colors.white,
+    paddingTop: 10,
   },
-  viewSearchCart: {
-    marginHorizontal: 17,
-    flexDirection:'row',
-    paddingTop:15
-  },
-  viewSearch: {
-    position:'relative',
-    flex:1
-  },
-  cartImage: {
-    width:25,
-    height:25,
-    position:'absolute',
-    top: 12,
-    left: 12
-  },
-  viewCartIcons: {
-    width:35,
-    alignItems:'center',
-    justifyContent:'center'
-  },
-  imageBasket: {
-    width: 28,
-    height: 28
-  },
-
-// FEATURE APPS STYLE
-  viewFeature: {
-    marginHorizontal:17,
-    marginTop: 15
-  },
-  viewLogo: {
+  row: {
     flexDirection: 'row',
-    justifyContent:'space-between',
-    backgroundColor:'#0DAC50',
-    borderTopLeftRadius: 7,
-    borderTopRightRadius: 7,
-    padding:13
-  },
-  imageLogo: {
-    width: 115,
-    height: 20
-  },
-  textLogo: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: 'white'
-  },
-  viewMenu: {
-    flexDirection: 'row',
-    paddingTop:20,
-    paddingBottom: 14,
-    backgroundColor:'#1DBC60',
-    borderBottomLeftRadius: 7,
-    borderBottomRightRadius: 7
-  },
-
-// MENU BLUE STYLE
-  viewMenuBlue: {
-    flex:1,
-    alignItems:'center',
-    justifyContent:'center'
-  },
-  TouchableOpacity:{
-    backgroundColor: 'white',
-    paddingRight:25,
-    paddingLeft:25,
-    paddingTop:3,
-    paddingBottom:3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 15
-  },
-  TouchableOpacityCategory:{
-    backgroundColor: 'white',
-    paddingRight:15,
-    paddingLeft:15,
-    paddingTop:3,
-    paddingBottom:3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 15
-  },
-  TouchableOpacityName:{
-    backgroundColor: 'white',
-    paddingRight:19,
-    paddingLeft:19,
-    paddingTop:3,
-    paddingBottom:3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 15
-  },
-  textMenu:{
-    color: 'green'
-  },
-
-// CONTENT APP STYLE
-  scrollMargin: {
-    marginTop:10,
-  },
-  viewContentImage: {
-    marginHorizontal:17,
+    paddingHorizontal: 10,
     marginTop: 10,
-    flexDirection:'row',
-    position:'relative'
   },
-  imageContent: {
-    width: 100,
-    height:100,
-    borderRadius:5
-  },
-  viewContentText:{
-    marginHorizontal:17,
-    width:'69%'
-  },
-  contentTitle:{
-    fontSize: 18,
-    fontWeight: 'bold',
-    paddingTop:5
-  },
-  contentDesc:{
-    fontSize: 15,
-    paddingTop:5
-  },
-  viewContentPrice:{
-    flexDirection:'row',
-    justifyContent:'space-between'
-  },
-  textContent:{
-    fontSize: 15,
-    fontWeight: 'bold',
-    paddingTop:15
-  },
-  contentTouchable:{
-    borderRadius: 25,
+  item: {
+    flex: 1,
+    height: 120,
+    paddingVertical: 20,
+    borderColor: colors.primaryLight,
+    borderWidth: 1,
+    borderRadius: 5,
     alignItems: 'center',
-    justifyContent:'center',
-    backgroundColor: '#0DAC50',
-    padding: 5,
-    paddingLeft:20,
-    paddingRight:20
+    justifyContent: 'space-around',
+    marginHorizontal: 5,
   },
-  textCart:{
-    fontWeight: 'bold',
-    color:'white'
-  }
+  blogItem: {
+    width: '31%',
+    height: 120,
+    paddingVertical: 20,
+    borderColor: colors.primaryLight,
+    borderWidth: 1,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginHorizontal: 5,
+  },
+  itemText: {
+    color: colors.primary,
+    fontFamily: fonts.primary,
+  },
+  itemImage: {
+    height: 35,
+  },
 });
 
 const mapStateToProps = state => {

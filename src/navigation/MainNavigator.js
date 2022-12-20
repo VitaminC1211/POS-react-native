@@ -3,6 +3,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import Login from '../screens/Login';
 import Signup from '../screens/Signup';
+import Main from '../screens/Main';
 import CobaTab from '../screens/CobaTab';
 import AddProduct from '../screens/AddProduct';
 import EditProduct from '../screens/EditProduct';
@@ -24,15 +25,16 @@ const StackAuth = createStackNavigator(
 
 const StackHome = createStackNavigator(
     {
-        CobaTab,
-        AddProduct,
-        AddCategory,
-        EditProduct,
-        EditCategory,
-        Cart
+      Main,
+      CobaTab,
+      AddProduct,
+      AddCategory,
+      EditProduct,
+      EditCategory,
+      Cart
     },
     {
-      initialRouteName: 'CobaTab',
+      initialRouteName: 'Main',
       headerMode: 'none',
     }
 );
@@ -43,7 +45,7 @@ const Router = createSwitchNavigator(
       StackHome,
     },
     {
-      initialRouteName: 'StackAuth',
+      initialRouteName: 'StackHome',
       headerMode: 'none',
     }
 );
